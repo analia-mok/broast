@@ -15,26 +15,31 @@ class AddCoffeesConstraints extends Migration
     {
         // Add relationships.
         Schema::table('coffees', function (Blueprint $table) {
-            $table->bigInteger('roaster_id')->unsigned()->nullable();
+
+            // Belongs To One Roaster.
+            $table->unsignedBigInteger('roaster_id')->nullable();
             $table->foreign('roaster_id')
                 ->references('id')
                 ->on('roasters')
                 ->onDelete('set null');
 
-            $table->bigInteger('flavor_profile_id')->unsigned()->nullable();
-            $table->foreign('flavor_profile_id')
-                ->references('id')
-                ->on('flavor_profiles')
-                ->onDelete('set null');
-
+            // Belongs To One Roast Level.
             $table->bigInteger('roast_level_id')->unsigned()->nullable();
             $table->foreign('roast_level_id')
                 ->references('id')
                 ->on('roast_levels')
                 ->onDelete('set null');
 
-            $table->bigInteger('best_brew_method_id')->unsigned()->nullable();
-            $table->foreign('best_brew_method_id')
+            // Belongs To One Flavor Profile.
+            $table->bigInteger('flavor_profile_id')->unsigned()->nullable();
+            $table->foreign('flavor_profile_id')
+                ->references('id')
+                ->on('flavor_profiles')
+                ->onDelete('set null');
+
+            // Belongs To One Brew Method.
+            $table->bigInteger('brewmethod_id')->unsigned()->nullable();
+            $table->foreign('brewmethod_id')
                 ->references('id')
                 ->on('brewmethod')
                 ->onDelete('set null');
@@ -51,9 +56,14 @@ class AddCoffeesConstraints extends Migration
         // Drop constraints.
         Schema::table('coffees', function (Blueprint $table) {
             $table->dropForeign('coffees_roaster_id_foreign');
-            $table->dropForeign('coffees_flavor_profile_id_foreign');
             $table->dropForeign('coffees_roast_level_id_foreign');
-            $table->dropForeign('coffees_best_brew_method_id_foreign');
+            $table->dropForeign('coffees_flavor_profile_id_foreign');
+            $table->dropForeign('coffees_brewmethod_id_foreign');
+
+            $table->dropColumn('roaster_id');
+            $table->dropColumn('roast_level_id');
+            $table->dropColumn('flavor_profile_id');
+            $table->dropColumn('brewmethod_id');
         });
     }
 }
