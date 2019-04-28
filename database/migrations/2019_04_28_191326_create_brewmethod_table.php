@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateBrewmethodTable extends Migration
 {
@@ -13,7 +13,7 @@ class CreateBrewmethodTable extends Migration
      */
     public function up()
     {
-        Schema::create('brewmethod', function (Blueprint $table) {
+        Schema::create('brew_methods', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title', 255);
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateBrewmethodTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('brewmethod');
+        Schema::dropIfExists('brew_methods');
     }
 }

@@ -38,10 +38,10 @@ class AddCoffeesConstraints extends Migration
                 ->onDelete('set null');
 
             // Belongs To One Brew Method.
-            $table->bigInteger('brewmethod_id')->unsigned()->nullable();
-            $table->foreign('brewmethod_id')
+            $table->bigInteger('brew_method_id')->unsigned()->nullable();
+            $table->foreign('brew_method_id')
                 ->references('id')
-                ->on('brewmethod')
+                ->on('brew_methods')
                 ->onDelete('set null');
         });
     }
@@ -58,12 +58,12 @@ class AddCoffeesConstraints extends Migration
             $table->dropForeign('coffees_roaster_id_foreign');
             $table->dropForeign('coffees_roast_level_id_foreign');
             $table->dropForeign('coffees_flavor_profile_id_foreign');
-            $table->dropForeign('coffees_brewmethod_id_foreign');
+            $table->dropForeign('coffees_brew_method_id_foreign');
 
             $table->dropColumn('roaster_id');
             $table->dropColumn('roast_level_id');
             $table->dropColumn('flavor_profile_id');
-            $table->dropColumn('brewmethod_id');
+            $table->dropColumn('brew_method_id');
         });
     }
 }
