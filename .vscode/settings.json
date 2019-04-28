@@ -1,4 +1,5 @@
 {
     "editor.formatOnSave": true,
-    "phpfmt.psr2": true
+    "phpfmt.psr2": true,
+    "php-docblocker.qualifyClassNames": true
 }
