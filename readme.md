@@ -10,7 +10,7 @@ A Laravel-based GraphQL endpoint meant to serve a front-end application for a co
 
 ## Packages Worth Noting
 * Laravel Nova
-  * __WARNING__: If you would like to take advantage of the Nova resources (soon to be) provided, you will need a valid Nova 2.0 or lower license. Check the [Nova docs](https://nova.laravel.com/docs/2.0/installation.html#installing-nova-via-composer) to remove the appropriate lines from the composer.json file.
+  * __WARNING__: If you would like to take advantage of the Nova resources (soon to be) provided, you will need a valid Nova 2.0 or lower license. Otherwise, check the [Nova docs](https://nova.laravel.com/docs/2.0/installation.html#installing-nova-via-composer) to remove the appropriate lines from the composer.json file.
 * [Lighthouse PHP](https://lighthouse-php.com/) (Configuration Coming Soon)
   * Package used to configure and serve the graphql endpoint
 
