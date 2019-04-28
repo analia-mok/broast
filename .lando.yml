@@ -1,0 +1,14 @@
+name: broast
+recipe: laravel
+config:
+  via: nginx
+  webroot: public
+  xdebug: true
+  php: 7.3
+  database: postgres
+  cache: redis
+tooling:
+  node:
+    service: node
+  npm:
+    service: node

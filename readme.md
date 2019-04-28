@@ -1,0 +1,19 @@
+# Broast
+
+A Laravel-based GraphQL endpoint meant to serve a front-end application for a coffee distribution company.
+
+## Stack
+* Laravel 5.8
+  * Using this variant [https://github.com/autoidle/laravel-heroku](https://github.com/autoidle/laravel-heroku) which justs provides out of the box configuration for deployments to Heroku
+* Postgres 10
+* Redis (For as the Queue Driver) - May or may not be used
+
+## Setup
+1. Have [Lando rc-2+](https://docs.devwithlando.io/installation/system-requirements.html) and Docker installed on your machine
+2. Simply clone this repo and run `lando start` from this project's root directory
+3. Duplicate the given `.env.example` to create your `.env` file
+  * Given that lando ships with the same credentials, the correct credentials have already been configured in the example file.
+4. Next, generate a new `APP_KEY` with `lando artisan key:generate`
+5. Visit [https://broast.lndo.site](https://broast.lndo.site). You should see the default Laravel welcome screen.
+
+Happy Hacking!
