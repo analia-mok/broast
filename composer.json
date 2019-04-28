@@ -1,5 +1,5 @@
 {
-    "name": "autoidle/laravel-heroku",
+    "name": "analia/broast",
     "type": "project",
     "description": "Latest Laravel with best practices for deployment on Heroku.",
     "keywords": [
@@ -8,12 +8,19 @@
         "heroku"
     ],
     "license": "MIT",
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://nova.laravel.com"
+        }
+    ],
     "require": {
         "php": "7.3.*",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
-        "predis/predis": "^1.1"
+        "predis/predis": "^1.1",
+        "laravel/nova": "~2.0"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
