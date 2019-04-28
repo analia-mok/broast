@@ -1,0 +1,4 @@
+{
+    "editor.formatOnSave": true,
+    "phpfmt.psr2": true
+}
