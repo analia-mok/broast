@@ -33,7 +33,7 @@ class Roaster extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'name', 'location',
+        'id', 'name',
     ];
 
     /**
