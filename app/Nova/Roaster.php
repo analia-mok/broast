@@ -3,24 +3,29 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Heading;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Image;
+use Laravel\Nova\Fields\Place;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Trix;
+use Laravel\Nova\Panel;
 
-class BrewMethod extends Resource
+class Roaster extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = 'App\BrewMethod';
+    public static $model = 'App\Roaster';
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'title';
+    public static $title = 'name';
 
     /**
      * The columns that should be searched.
@@ -28,7 +33,7 @@ class BrewMethod extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'title',
+        'id', 'name', 'location',
     ];
 
     /**
@@ -41,9 +46,46 @@ class BrewMethod extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Title')
-                ->rules('required', 'max:255')
-                ->sortable(),
+
+            Text::make('Name')
+                ->sortable()
+                ->rules('required', 'max:255'),
+
+            Image::make('Logo')
+                ->disk('public')
+                ->rules('required')
+                ->hideFromIndex(),
+
+            Heading::make('Location Information')->onlyOnForms(),
+
+            new Panel('Location Information', $this->addressFields()),
+
+            Heading::make('Descriptive Information')->onlyOnForms(),
+
+            new Panel('Descriptive Information', [
+                Trix::make('Description'),
+                Trix::make('Fun Fact'),
+            ]),
+        ];
+    }
+
+    /**
+     * Get address fields for panel.
+     *
+     * @return Array
+     */
+    protected function addressFields()
+    {
+        return [
+            Place::make('City')
+                ->state('state')
+                ->rules('required')
+                ->onlyCities()
+                ->countries(['US', 'CA'])
+                ->hideFromIndex(),
+            Text::make('State')
+                ->rules('required')
+                ->hideFromIndex(),
         ];
     }
 

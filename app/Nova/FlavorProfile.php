@@ -5,22 +5,23 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Trix;
 
-class BrewMethod extends Resource
+class FlavorProfile extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = 'App\BrewMethod';
+    public static $model = 'App\FlavorProfile';
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'title';
+    public static $title = 'profile_name';
 
     /**
      * The columns that should be searched.
@@ -28,7 +29,7 @@ class BrewMethod extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'title',
+        'id', 'profile_name',
     ];
 
     /**
@@ -41,9 +42,10 @@ class BrewMethod extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Title')
-                ->rules('required', 'max:255')
-                ->sortable(),
+            Text::make('Profile Name')
+                ->sortable()
+                ->rules('required', 'max:255'),
+            Trix::make('Description'),
         ];
     }
 
