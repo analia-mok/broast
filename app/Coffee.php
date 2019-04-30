@@ -23,7 +23,7 @@ class Coffee extends Model
      */
     public function flavorProfile()
     {
-        return $this->belongsToMany('App\FlavorProfile');
+        return $this->belongsTo('App\FlavorProfile');
     }
 
     /**
