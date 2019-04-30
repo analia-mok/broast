@@ -110,7 +110,7 @@ class Coffee extends Resource
                 ->rules('required')
                 ->hideFromIndex(),
 
-            BelongsTo::make('Best Brew Method', 'bestBrewMethod', '\App\Nova\BrewMethod')
+            BelongsTo::make('Best Brew Method', 'brewMethod', '\App\Nova\BrewMethod')
                 ->nullable()
                 ->hideFromIndex(),
         ];
@@ -123,15 +123,18 @@ class Coffee extends Resource
      */
     protected function pricingFields()
     {
+        // TODO: Fix numeric overflow error.
         return [
             Number::make('Max Quantity')
                 ->min(1)
                 ->rules('required')
                 ->hideFromIndex(),
+
             Currency::make('Price Per Bag')->format('%.2n')
                 ->min(0)
                 ->rules('required')
                 ->hideFromIndex(),
+
             Number::make('Bag In Ounces')
                 ->min(0)
                 ->step(0.01)

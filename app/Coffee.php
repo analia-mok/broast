@@ -41,7 +41,7 @@ class Coffee extends Model
      *
      * @return \App\BrewMethod brewMethod
      */
-    public function bestBrewMethod()
+    public function brewMethod()
     {
         return $this->belongsTo('\App\BrewMethod');
     }
