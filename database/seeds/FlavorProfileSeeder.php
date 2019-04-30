@@ -1,7 +1,5 @@
 <?php
 
-use Faker\Factory as FakerFactory;
-use Faker\Generator as Faker;
 use Illuminate\Database\Seeder;
 
 class FlavorProfileSeeder extends Seeder
