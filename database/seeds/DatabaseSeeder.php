@@ -1,6 +1,9 @@
 <?php
 
+use BrewMethodSeeder;
+use FlavorProfileSeeder;
 use Illuminate\Database\Seeder;
+use RoastLevelSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -11,6 +14,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        $this->call(BrewMethodSeeder::class);
+        $this->call(FlavorProfileSeeder::class);
+        $this->call(RoastLevelSeeder::class);
     }
 }
