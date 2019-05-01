@@ -90,8 +90,7 @@ class Coffee extends Resource
             Trix::make('Description'),
             DateTime::make('Created At')
                 ->hideFromIndex(),
-            DateTime::make('Updated At')
-                ->hideFromIndex(),
+            DateTime::make('Updated At'),
             Boolean::make('Is Single Origin?', 'is_single_origin')
                 ->hideFromIndex(),
 
@@ -102,13 +101,11 @@ class Coffee extends Resource
 
             BelongsTo::make('Roast Level', 'roastLevel')
                 ->nullable()
-                ->rules('required')
-                ->hideFromIndex(),
+                ->rules('required'),
 
             BelongsTo::make('Roaster')
                 ->searchable()
-                ->rules('required')
-                ->hideFromIndex(),
+                ->rules('required'),
 
             BelongsTo::make('Best Brew Method', 'brewMethod', '\App\Nova\BrewMethod')
                 ->nullable()
@@ -123,7 +120,6 @@ class Coffee extends Resource
      */
     protected function pricingFields()
     {
-        // TODO: Fix numeric overflow error.
         return [
             Number::make('Max Quantity')
                 ->min(1)

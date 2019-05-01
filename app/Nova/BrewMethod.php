@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 
@@ -44,6 +45,7 @@ class BrewMethod extends Resource
             Text::make('Title')
                 ->rules('required', 'max:255')
                 ->sortable(),
+            HasMany::make('Coffees'),
         ];
     }
 

@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
@@ -46,6 +47,7 @@ class FlavorProfile extends Resource
                 ->sortable()
                 ->rules('required', 'max:255'),
             Trix::make('Description'),
+            HasMany::make('Coffees'),
         ];
     }
 

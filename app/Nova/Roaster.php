@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\Heading;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image;
@@ -66,6 +67,8 @@ class Roaster extends Resource
                 Trix::make('Description'),
                 Trix::make('Fun Fact'),
             ]),
+
+            HasMany::make('Coffees'),
         ];
     }
 
@@ -81,11 +84,9 @@ class Roaster extends Resource
                 ->state('state')
                 ->rules('required')
                 ->onlyCities()
-                ->countries(['US', 'CA'])
-                ->hideFromIndex(),
+                ->countries(['US', 'CA']),
             Text::make('State')
-                ->rules('required')
-                ->hideFromIndex(),
+                ->rules('required'),
         ];
     }
 
