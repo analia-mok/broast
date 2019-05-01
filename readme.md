@@ -24,4 +24,9 @@ A Laravel-based GraphQL endpoint meant to serve a front-end application for a co
 6. Next, generate the symlink to the local storage folder using `lando artisan storage:link` (Will add to lando recipe as an event)
 5. Visit [https://broast.lndo.site](https://broast.lndo.site). You should see the default Laravel welcome screen.
 
+### Links
+* Navigate to [https://broast.lndo.site/nova](https://broast.lndo.site/nova) to login.
+    * For first time login, run `lando artisan nova:user` and follow the prompts to create a new login.
+* Navigate to [https://broast.lndo.site/telescope](https://broast.lndo.site/telescope) to open the debugging dashboard. __NOTE__: This project is preconfigured to install telescope only for local development.
+
 Happy Hacking!
