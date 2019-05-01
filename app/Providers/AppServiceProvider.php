@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
+use App\Providers\TelescopeServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,7 +16,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        if ($this->app->isLocal()) {
+            $this->app->register(TelescopeServiceProvider::class);
+        }
     }
 
     /**
