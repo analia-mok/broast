@@ -1,0 +1,26 @@
+type Coffee {
+  id: ID!
+  name: String!
+  description: String
+  isSoldOut: Boolean! @rename(attribute: "is_sold_out")
+  isSingleOrigin: Boolean! @rename(attribute: "is_single_origin")
+  isAvailableGround: Boolean! @rename(attribute: "is_available_ground")
+  isAvailableWhole: Boolean! @rename(attribute: "is_available_whole")
+  isRetired: Boolean! @rename(attribute: "is_retired")
+  bagInOunces: Float! @rename(attribute: "bag_in_ounces")
+  pricePerBag: Float! @rename(attribute: "price_per_bag")
+  maxQuantity: Int! @rename(attribute: "max_quantity")
+
+  createdAt: DateTime @rename(attribute: "created_at")
+  updatedAt: DateTime @rename(attribute: "updated_at")
+
+  roaster: Roaster @belongsTo
+  flavorProfile: FlavorProfile @belongsTo
+  roastLevel: RoastLevel @belongsTo
+  brewMethod: BrewMethod @belongsTo
+}
+
+extend type Query {
+  coffees: [Coffee!]! @paginate(type: "paginator" model: "App\\Coffee", defaultCount: 10)
+  coffee(id: ID @eq): Coffee @find(model: "App\\Coffee")
+}

@@ -1,0 +1,18 @@
+type Roaster {
+  id: ID!
+  name: String!
+  city: String!
+  state: String!
+  description: String
+  funFact: String @rename(attribute: "fun_fact")
+  logo: String
+  createdAt: DateTime @rename(attribute: "created_at")
+  updatedAt: DateTime @rename(attribute: "updated_at")
+
+  coffees: [Coffee!] @hasMany
+}
+
+extend type Query {
+  roasters: [Roaster!]! @paginate(type: "paginator", model: "App\\Roaster", defaultCount: 10)
+  roaster(id: ID @eq): Roaster @find(model: "App\\Roaster")
+}

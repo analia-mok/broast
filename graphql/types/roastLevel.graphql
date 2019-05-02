@@ -1,0 +1,14 @@
+type RoastLevel {
+  id: ID!
+  name: String!
+  description: String
+  createdAt: DateTime @rename(attribute: "created_at")
+  updatedAt: DateTime @rename(attribute: "updated_at")
+
+  coffees: [Coffee!] @hasMany
+}
+
+extend type Query {
+  roastLevels: [RoastLevel!]! @paginate(type: "paginator", model: "App\\RoastLevel", defaultCount: 10)
+  roastLevel(id: ID @eq): RoastLevel @find(model: "App\\RoastLevel")
+}

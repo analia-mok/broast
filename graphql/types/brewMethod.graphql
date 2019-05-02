@@ -1,0 +1,13 @@
+type BrewMethod {
+  id: ID!
+  title: String!
+  createdAt: DateTime @rename(attribute: "created_at")
+  updatedAt: DateTime @rename(attribute: "updated_at")
+
+  coffees: [Coffee!] @hasMany
+}
+
+extend type Query {
+  brewMethods: [BrewMethod!]! @paginate(type: "paginator", model: "App\\BrewMethod", defaultCount: 10)
+  brewMethod(id: ID @eq): BrewMethod @find(model: "App\\BrewMethod")
+}

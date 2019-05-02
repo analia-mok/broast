@@ -1,0 +1,14 @@
+type FlavorProfile {
+  id: ID!
+  profileName: String! @rename(attribute: "profile_name")
+  description: String
+  createdAt: DateTime @rename(attribute: "created_at")
+  updatedAt: DateTime @rename(attribute: "updated_at")
+
+  coffees: [Coffee!] @hasMany
+}
+
+extend type Query {
+  flavorProfiles: [FlavorProfile!]! @paginate(type: "paginator", model: "App\\FlavorProfile", defaultCount: 10)
+  flavorProfile(id: ID @eq): FlavorProfile @find(model: "App\\FlavorProfile")
+}
