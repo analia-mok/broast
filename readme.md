@@ -11,7 +11,7 @@ A Laravel-based GraphQL endpoint meant to serve a front-end application for a co
 ## Packages Worth Noting
 * Laravel Nova
   * __WARNING__: If you would like to take advantage of the Nova resources provided, you will need a valid Nova 2.0 or lower license. Otherwise, check the [Nova docs](https://nova.laravel.com/docs/2.0/installation.html#installing-nova-via-composer) to remove the appropriate lines from the composer.json file.
-* [Lighthouse PHP](https://lighthouse-php.com/) (Configuration Coming Soon)
+* [Lighthouse PHP](https://lighthouse-php.com/)
   * Package used to configure and serve the graphql endpoint
 
 ## Setup
@@ -30,5 +30,6 @@ A Laravel-based GraphQL endpoint meant to serve a front-end application for a co
 * Navigate to [https://broast.lndo.site/nova](https://broast.lndo.site/nova) to log into the admin dashboard.
     * For first time login, run `lando artisan nova:user` and follow the prompts to create a new login.
 * Navigate to [https://broast.lndo.site/telescope](https://broast.lndo.site/telescope) to open the debugging dashboard. __NOTE__: This project is preconfigured to install telescope only for local development.
+* Navigate to [https://broast.lndo.site/graphql-playground](https://broast.lndo.site/graphql-playground) to open GraphQL Playground to test your queries.
 
 Happy Hacking!
