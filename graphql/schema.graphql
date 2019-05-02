@@ -1,0 +1,91 @@
+"A datetime string with format `Y-m-d H:i:s`, e.g. `2018-01-01 13:00:00`."
+scalar DateTime
+    @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
+
+"A date string with format `Y-m-d`, e.g. `2011-05-23`."
+scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
+
+type Query {
+    users: [User!]! @paginate(type: "paginator", model: "App\\User", defaultCount: 10)
+    user(id: ID @eq): User @find(model: "App\\User")
+
+    brewMethods: [BrewMethod!]! @paginate(type: "paginator", model: "App\\BrewMethod", defaultCount: 10)
+    brewMethod(id: ID @eq): BrewMethod @find(model: "App\\BrewMethod")
+
+    roastLevels: [RoastLevel!]! @paginate(type: "paginator", model: "App\\RoastLevel", defaultCount: 10)
+    roastLevel(id: ID @eq): RoastLevel @find(model: "App\\RoastLevel")
+
+    flavorProfiles: [FlavorProfile!]! @paginate(type: "paginator", model: "App\\FlavorProfile", defaultCount: 10)
+    flavorProfile(id: ID @eq): FlavorProfile @find(model: "App\\FlavorProfile")
+
+    roasters: [Roaster!]! @paginate(type: "paginator", model: "App\\Roaster", defaultCount: 10)
+    roaster(id: ID @eq): Roaster @find(model: "App\\Roaster")
+
+    coffees: [Coffee!]! @paginate(type: "paginator" model: "App\\Coffee", defaultCount: 10)
+    coffee(id: ID @eq): Coffee @find(model: "App\\Coffee")
+}
+
+type User {
+    id: ID!
+    name: String!
+    email: String!
+    createdAt: DateTime! @rename(attribute: "created_at")
+    updatedAt: DateTime! @rename(attribute: "updated_at")
+}
+
+type BrewMethod {
+    id: ID!
+    title: String!
+    createdAt: DateTime @rename(attribute: "created_at")
+    updatedAt: DateTime @rename(attribute: "updated_at")
+}
+
+type RoastLevel {
+    id: ID!
+    name: String!
+    description: String
+    createdAt: DateTime @rename(attribute: "created_at")
+    updatedAt: DateTime @rename(attribute: "updated_at")
+}
+
+type FlavorProfile {
+    id: ID!
+    profileName: String! @rename(attribute: "profile_name")
+    description: String
+    createdAt: DateTime @rename(attribute: "created_at")
+    updatedAt: DateTime @rename(attribute: "updated_at")
+}
+
+type Roaster {
+    id: ID!
+    name: String!
+    city: String!
+    state: String!
+    description: String
+    funFact: String @rename(attribute: "fun_fact")
+    logo: String
+    createdAt: DateTime @rename(attribute: "created_at")
+    updatedAt: DateTime @rename(attribute: "updated_at")
+}
+
+type Coffee {
+    id: ID!
+    name: String!
+    description: String
+    isSoldOut: Boolean! @rename(attribute: "is_sold_out")
+    isSingleOrigin: Boolean! @rename(attribute: "is_single_origin")
+    isAvailableGround: Boolean! @rename(attribute: "is_available_ground")
+    isAvailableWhole: Boolean! @rename(attribute: "is_available_whole")
+    isRetired: Boolean! @rename(attribute: "is_retired")
+    bagInOunces: Float! @rename(attribute: "bag_in_ounces")
+    pricePerBag: Float! @rename(attribute: "price_per_bag")
+    maxQuantity: Int! @rename(attribute: "max_quantity")
+
+    createdAt: DateTime @rename(attribute: "created_at")
+    updatedAt: DateTime @rename(attribute: "updated_at")
+
+    roaster: Roaster @belongsTo
+    flavorProfile: FlavorProfile @belongsTo
+    roastLevel: RoastLevel @belongsTo
+    brewMethod: BrewMethod @belongsTo
+}

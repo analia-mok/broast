@@ -21,6 +21,8 @@
         "laravel/framework": "5.8.*",
         "laravel/nova": "~2.0",
         "laravel/tinker": "^1.0",
+        "mll-lab/laravel-graphql-playground": "^1.0",
+        "nuwave/lighthouse": "^3.5",
         "predis/predis": "^1.1"
     },
     "require-dev": {

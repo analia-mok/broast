@@ -13,7 +13,7 @@ class Coffee extends Model
      */
     public function roaster()
     {
-        return $this->belongsTo('App\Roaster');
+        return $this->belongsTo(Roaster::class);
     }
 
     /**
@@ -23,7 +23,7 @@ class Coffee extends Model
      */
     public function flavorProfile()
     {
-        return $this->belongsTo('App\FlavorProfile');
+        return $this->belongsTo(FlavorProfile::class);
     }
 
     /**
@@ -33,7 +33,7 @@ class Coffee extends Model
      */
     public function roastLevel()
     {
-        return $this->belongsTo('App\RoastLevel');
+        return $this->belongsTo(RoastLevel::class);
     }
 
     /**
@@ -43,6 +43,6 @@ class Coffee extends Model
      */
     public function brewMethod()
     {
-        return $this->belongsTo('\App\BrewMethod');
+        return $this->belongsTo(BrewMethod::class);
     }
 }
