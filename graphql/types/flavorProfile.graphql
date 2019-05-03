@@ -5,7 +5,7 @@ type FlavorProfile {
   createdAt: DateTime @rename(attribute: "created_at")
   updatedAt: DateTime @rename(attribute: "updated_at")
 
-  coffees: [Coffee!] @hasMany
+  coffees: [Coffee!] @hasMany(type: "paginator")
 }
 
 extend type Query {
