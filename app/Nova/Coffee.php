@@ -2,17 +2,19 @@
 
 namespace App\Nova;
 
-use Illuminate\Http\Request;
-use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\Boolean;
-use Laravel\Nova\Fields\Currency;
-use Laravel\Nova\Fields\DateTime;
-use Laravel\Nova\Fields\Heading;
+use Laravel\Nova\Panel;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Number;
+use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
-use Laravel\Nova\Panel;
+use Laravel\Nova\Fields\Image;
+use Laravel\Nova\Fields\Number;
+use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\Country;
+use Laravel\Nova\Fields\Heading;
+use Laravel\Nova\Fields\Currency;
+use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\BelongsTo;
 
 class Coffee extends Resource
 {
@@ -48,6 +50,8 @@ class Coffee extends Resource
     public function fields(Request $request)
     {
         return [
+            ID::make()->sortable(),
+
             Heading::make('Basic Information')->onlyOnForms(),
             new Panel('Basic Information', $this->basicInfoFields()),
 
@@ -81,17 +85,27 @@ class Coffee extends Resource
     protected function basicInfoFields()
     {
         return [
-            ID::make()->sortable(),
-
             Text::make('Name')
                 ->rules('required', 'max:255')
                 ->sortable(),
 
             Trix::make('Description'),
+
+            Image::make('Coffee Image')
+                ->disk('public')
+                ->creationRules('nullable')
+                ->updateRules('nullable')
+                ->hideFromIndex(),
+
             DateTime::make('Created At')
                 ->hideFromIndex(),
+
             DateTime::make('Updated At'),
+
             Boolean::make('Is Single Origin?', 'is_single_origin')
+                ->hideFromIndex(),
+
+            Country::make('Origin Country')
                 ->hideFromIndex(),
 
             BelongsTo::make('Flavor Profile', 'flavorProfile')
