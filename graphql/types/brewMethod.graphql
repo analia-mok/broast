@@ -8,6 +8,6 @@ type BrewMethod {
 }
 
 extend type Query {
-  brewMethods: [BrewMethod!]! @paginate(type: "paginator", model: "App\\BrewMethod", defaultCount: 10)
+  brewMethods: [BrewMethod!]! @all(model: "App\\BrewMethod")
   brewMethod(id: ID @eq): BrewMethod @find(model: "App\\BrewMethod")
 }

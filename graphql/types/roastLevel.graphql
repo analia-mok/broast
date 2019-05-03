@@ -9,6 +9,6 @@ type RoastLevel {
 }
 
 extend type Query {
-  roastLevels: [RoastLevel!]! @paginate(type: "paginator", model: "App\\RoastLevel", defaultCount: 10)
+  roastLevels: [RoastLevel!]! @all(model: "App\\RoastLevel")
   roastLevel(id: ID @eq): RoastLevel @find(model: "App\\RoastLevel")
 }
