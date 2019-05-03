@@ -21,6 +21,7 @@ type Coffee {
 }
 
 extend type Query {
-  coffees: [Coffee!]! @paginate(type: "paginator" model: "App\\Coffee", defaultCount: 10)
+  coffees(is_retired: Boolean @eq, is_sold_out: Boolean @eq, is_single_origin: Boolean @eq, is_available_ground: Boolean @eq, is_available_whole: Boolean @eq):
+    [Coffee!]! @paginate(type: "paginator" model: "App\\Coffee", defaultCount: 10)
   coffee(id: ID @eq): Coffee @find(model: "App\\Coffee")
 }
