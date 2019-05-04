@@ -3,7 +3,7 @@ const tailwindcss = require('tailwindcss');
 const path = require('path');
 
 mix
-  .js('resources/js/app.js', 'public/js')
+  .ts('resources/js/app.ts', 'public/js')
   .postCss('resources/css/app.css', 'public/css', [tailwindcss('resources/tailwind.js')])
   .webpackConfig({
     output: { chunkFilename: 'js/[name].[contenthash].js' },
