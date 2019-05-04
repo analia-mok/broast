@@ -1,7 +1,8 @@
 {
-    "editor.formatOnSave": true,
-    "phpfmt.psr2": true,
-    "php-docblocker.qualifyClassNames": true,
-    "phpcs.ignorePatterns": ["vendor/**/*.php", "vendor/*"],
-    "prettier.disableLanguages": ["graphql"]
+  "editor.formatOnSave": true,
+  "phpfmt.psr2": true,
+  "php-docblocker.qualifyClassNames": true,
+  "phpcs.ignorePatterns": ["vendor/**/*.php", "vendor/*"],
+  "prettier.disableLanguages": ["graphql"],
+  "vetur.validation.template": false
 }
