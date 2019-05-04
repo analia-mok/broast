@@ -9,8 +9,9 @@
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app"></div>
+    <main>
+        <h1>Welcome to the Broast API</h1>
+    </main>
     <script src="{{ mix('/js/app.js') }}" defer></script>
-    <script src="{{ mix('/js/page-style-guide.js') }}"></script>
 </body>
 </html>
