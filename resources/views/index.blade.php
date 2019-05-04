@@ -11,5 +11,6 @@
 <body>
     <div id="app"></div>
     <script src="{{ mix('/js/app.js') }}" defer></script>
+    <script src="{{ mix('/js/page-style-guide.js') }}"></script>
 </body>
 </html>

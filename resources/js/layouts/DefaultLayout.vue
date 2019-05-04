@@ -4,7 +4,7 @@
       <nav class="container mx-auto py-8">
         <ul class="list-reset flex justify-center items-center font-serif text-xl font-semibold text-black">
           <li class="px-8">Coffees</li>
-          <li><router-link :to="{ name: 'app'}"><DarkLogo /></router-link></li>
+          <li @contextmenu.prevent="goToStyleGuide"><router-link :to="{ name: 'home'}"><DarkLogo /></router-link></li>
           <li class="px-8">Roaster</li>
         </ul>
       </nav>
@@ -24,6 +24,10 @@ import DarkLogo from '@icons/DarkLogo.vue';
     DarkLogo
   }
 })
-export default class DefaultLayout extends Vue {}
+export default class DefaultLayout extends Vue {
+  goToStyleGuide() {
+    this.$router.push({ name: 'styleGuide' });
+  }
+}
 </script>
 
