@@ -1,6 +1,6 @@
 # Broast
 
-A Laravel-based GraphQL endpoint meant to serve a front-end application for a coffee distribution company. Note: this repo will also contain a pre-developed front-end in the `resources/` folder. If you just want the API for a completely separate frontend project, see the [Removing the front end](##Removing-the-front-end) section of this readme.
+A Laravel-based GraphQL endpoint meant to serve a front-end application for a coffee distribution company. Note: this repo will also contain a pre-developed front-end in the `resources/` folder. If you just want the API for a completely separate frontend project, see the [Removing the front end](#Removing-the-front-end) section of this readme.
 
 ## Stack
 
