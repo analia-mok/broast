@@ -2,7 +2,7 @@
 
 A Laravel-based GraphQL endpoint meant to serve a front-end application for a coffee distribution company.
 
-For an example front-end, visit [Preparing Repo]
+For an example front-end, visit [https://github.com/AnaliaMok/broast-front-end](https://github.com/AnaliaMok/broast-front-end)
 
 ## Stack
 
@@ -29,7 +29,7 @@ For an example front-end, visit [Preparing Repo]
 6. Next, generate the symlink to the local storage folder using `lando artisan storage:link` (Will add to lando recipe as an event)
 7. Run `lando artisan migrate` to generate all tables.
 8. To generate sample content, run the available seeders with `lando artisan db:seed`
-9. Visit [https://broast.lndo.site](https://broast.lndo.site). You should see the default Laravel welcome screen.
+9. Visit [https://broast.lndo.site](https://broast.lndo.site). You should see a "Welcome to the Broast API" screen.
 
 ### Links
 
