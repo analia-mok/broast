@@ -10,7 +10,8 @@ mix
     resolve: {
       alias: {
         vue$: 'vue/dist/vue.runtime.js',
-        '@': path.resolve('resources/js')
+        '@': path.resolve('resources/js'),
+        '@icons': path.resolve('resources/js/components/icons')
       }
     }
   });

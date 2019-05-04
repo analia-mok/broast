@@ -28,7 +28,7 @@ let defaultConfig = require('tailwindcss/defaultConfig')();
 let colors = {
   transparent: 'transparent',
 
-  black: '#22292f',
+  black: '#2D2D2D',
   'grey-darkest': '#3d4852',
   'grey-darker': '#606f7b',
   'grey-dark': '#8795a1',
@@ -38,45 +38,21 @@ let colors = {
   'grey-lightest': '#f8fafc',
   white: '#ffffff',
 
-  'red-darkest': '#3b0d0c',
-  'red-darker': '#621b18',
-  'red-dark': '#cc1f1a',
-  red: '#e3342f',
-  'red-light': '#ef5753',
-  'red-lighter': '#f9acaa',
-  'red-lightest': '#fcebea',
+  'teal-100': '#E8FFFE',
+  'teal-200': '#A0F0ED',
+  'teal-300': '#64D5CA',
+  teal: '#4DC0B5',
+  'teal-600': '#38A89D',
+  'teal-700': '#20504F',
+  'teal-800': '#0D3331',
 
-  'orange-darkest': '#462a16',
-  'orange-darker': '#613b1f',
-  'orange-dark': '#de751f',
-  orange: '#f6993f',
-  'orange-light': '#faad63',
-  'orange-lighter': '#fcd9b6',
-  'orange-lightest': '#fff5eb',
-
-  'teal-darkest': '#0d3331',
-  'teal-darker': '#20504f',
-  'teal-dark': '#38a89d',
-  teal: '#4dc0b5',
-  'teal-light': '#64d5ca',
-  'teal-lighter': '#a0f0ed',
-  'teal-lightest': '#e8fffe',
-
-  'blue-darkest': '#12283a',
-  'blue-darker': '#1c3d5a',
-  'blue-dark': '#2779bd',
+  'blue-800': '#12283a',
+  'blue-700': '#1c3d5a',
+  'blue-600': '#2779bd',
   blue: '#3490dc',
-  'blue-light': '#6cb2eb',
-  'blue-lighter': '#bcdefa',
-  'blue-lightest': '#eff8ff',
-
-  'indigo-darkest': '#191e38',
-  'indigo-darker': '#2f365f',
-  'indigo-dark': '#5661b3',
-  indigo: '#6574cd',
-  'indigo-light': '#7886d7',
-  'indigo-lighter': '#b2b7ff',
-  'indigo-lightest': '#e6e8ff'
+  'blue-400': '#6cb2eb',
+  'blue-300': '#bcdefa',
+  'blue-100': '#eff8ff'
 };
 
 module.exports = {
@@ -100,11 +76,8 @@ module.exports = {
   | Screens                      https://tailwindcss.com/docs/responsive-design
   |-----------------------------------------------------------------------------
   |
-  | Screens in Tailwind are translated to CSS media queries. They define the
-  | responsive breakpoints for your project. By default Tailwind takes a
-  | "mobile first" approach, where each screen size represents a minimum
-  | viewport width. Feel free to have as few or as many screens as you
-  | want, naming them in whatever way you'd prefer for your project.
+  | By default Tailwind takes a "mobile first" approach, where each screen size
+  | represents a minimum viewport width.
   |
   | Tailwind also allows for more complex screen definitions, which can be
   | useful in certain situations. Be sure to see the full responsive
@@ -142,21 +115,19 @@ module.exports = {
 
   fonts: {
     sans: [
+      'Lato',
       'system-ui',
       'BlinkMacSystemFont',
       '-apple-system',
       'Segoe UI',
       'Roboto',
-      'Oxygen',
-      'Ubuntu',
-      'Cantarell',
       'Fira Sans',
       'Droid Sans',
       'Helvetica Neue',
       'sans-serif'
     ],
     serif: [
-      'Constantia',
+      'Playfair Display',
       'Lucida Bright',
       'Lucidabright',
       'Lucida Serif',
@@ -166,8 +137,7 @@ module.exports = {
       'Liberation Serif',
       'Georgia',
       'serif'
-    ],
-    mono: ['Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace']
+    ]
   },
 
   /*
@@ -180,7 +150,6 @@ module.exports = {
   */
 
   textSizes: {
-    xs: '.75rem', // 12px
     sm: '.875rem', // 14px
     base: '1rem', // 16px
     lg: '1.125rem', // 18px
@@ -201,7 +170,6 @@ module.exports = {
   */
 
   fontWeights: {
-    normal: 400,
     medium: 500,
     semibold: 600,
     bold: 700,
@@ -249,7 +217,17 @@ module.exports = {
   |
   */
 
-  textColors: colors,
+  textColors: {
+    black: '#2D2D2D',
+    'grey-darkest': '#3d4852',
+    'grey-darker': '#606f7b',
+    'grey-dark': '#8795a1',
+    grey: '#b8c2cc',
+    'grey-light': '#dae1e7',
+    'grey-lighter': '#f1f5f8',
+    'grey-lightest': '#f8fafc',
+    white: '#ffffff'
+  },
 
   /*
   |-----------------------------------------------------------------------------
