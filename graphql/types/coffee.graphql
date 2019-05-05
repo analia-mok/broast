@@ -2,6 +2,7 @@ type Coffee {
   id: ID!
   name: String!
   description: String
+  coffeeImage(name: String = "coffee_image"): String @field(resolver: "App\\GraphQL\\Queries\\Images@resolveImage")
   isSoldOut: Boolean! @rename(attribute: "is_sold_out")
   isSingleOrigin: Boolean! @rename(attribute: "is_single_origin")
   isAvailableGround: Boolean! @rename(attribute: "is_available_ground")

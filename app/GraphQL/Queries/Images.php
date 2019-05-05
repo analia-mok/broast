@@ -19,6 +19,6 @@ class Images
      */
     public function resolveImage($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo): string
     {
-        return env('APP_URL', '') . Storage::url($rootValue->logo);
+        return env('APP_URL', '') . Storage::url($rootValue->{$args['name']});
     }
 }
