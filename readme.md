@@ -31,6 +31,13 @@ For an example front-end, visit [https://github.com/AnaliaMok/broast-front-end](
 8. To generate sample content, run the available seeders with `lando artisan db:seed`
 9. Visit [https://broast.lndo.site](https://broast.lndo.site). You should see a "Welcome to the Broast API" screen.
 
+### Connecting A Front-End
+
+A custom CORS policy middleware has been implemented to restrict access to specific request origins and request methods (POST and GET only).
+To allow access to your specific front-end, supply your request origin in the `CONSUMER_ORIGIN` key in your `.env` file.
+
+Feel free to extend this security measure to something a little stronger like with JWT.
+
 ### Links
 
 -   **Admin Dashboard:** [https://broast.lndo.site/nova](https://broast.lndo.site/nova)
