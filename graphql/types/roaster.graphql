@@ -5,7 +5,7 @@ type Roaster {
   state: String!
   description: String
   funFact: String @rename(attribute: "fun_fact")
-  logo: String
+  logo: String @field(resolver: "App\\GraphQL\\Queries\\Images@resolveImage")
   createdAt: DateTime @rename(attribute: "created_at")
   updatedAt: DateTime @rename(attribute: "updated_at")
 
